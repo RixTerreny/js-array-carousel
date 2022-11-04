@@ -1,4 +1,4 @@
-const imgScr =[
+const images =[
     "img/01.webp",
     "img/02.webp",
     "img/03.webp",
@@ -6,25 +6,45 @@ const imgScr =[
     "img/05.webp"
 ];
 
-const img = document.querySelector("img");
-img.src=imgScr[0];
+let counter = 1;
 
+const imgContainer = document.querySelector(".img-container");
 const up = document.getElementById("up");
 const down = document.getElementById("down");
-let counter = 0;
 
-up.addEventListener("click", function () {
-    if (counter==imgScr.length-1){
-        counter=-1;
+let imgGenerator
+
+for (let i = 0; i < images.length; i++) {
+    imgGenerator = document.createElement("img");
+    imgGenerator.src= images[i]
+    imgGenerator.classList.add("position-absolute","show")
+
+    imgContainer.append(imgGenerator); 
+    if(i==0){
+        imgGenerator.classList.add("visible");
     }
-    counter++
-    img.src=imgScr[counter];
-})
+}
 
 down.addEventListener("click", function () {
-    if (counter==0){
-        counter=imgScr.length;
+    let imgOldSelector = document.querySelector(`.show:nth-child(${counter})`);
+    imgOldSelector.classList.remove("visible");
+    if (counter==images.length){
+        counter=0;
     }
-    counter--
-    img.src=imgScr[counter];
+    console.log(counter+1);
+    counter++;
+    let imgVisibleSelector = document.querySelector(`.show:nth-child(${counter})`);
+    imgVisibleSelector.classList.add("visible");
+})
+
+up.addEventListener("click", function () {
+    let imgOldSelector = document.querySelector(`.show:nth-child(${counter})`);
+    imgOldSelector.classList.remove("visible");
+    if (counter==1){
+        counter=images.length+1;
+    }
+    console.log(counter-1);
+    counter--;
+    let imgVisibleSelector = document.querySelector(`.show:nth-child(${counter})`);
+    imgVisibleSelector.classList.add("visible");
 })
