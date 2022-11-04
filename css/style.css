@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+}
+
+.img-container{
+    width: 75vh;
+    height: 35vw;
+    overflow: hidden;
+}
+
+.img-aside-container{
+    width: 25vw;
+    height: 7vw;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-aside-container img{
+    position: absolute;
+    transform: translate(-25%,-15%);
+}
