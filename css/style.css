@@ -40,13 +40,9 @@ img{
     filter: grayscale(90%) ;
 }
 
-.img-aside-container:nth-child(2){
-    filter: grayscale(0);
-}
-
 /* added with js */
 .activate{
-    filter: grayscale(0);
+    filter: none;
 }
 
 .img-aside-container img{

@@ -28,23 +28,42 @@ for (let i = 0; i < images.length; i++) {
 down.addEventListener("click", function () {
     let imgOldSelector = document.querySelector(`.show:nth-child(${counter})`);
     imgOldSelector.classList.remove("visible");
+
+    let imgOldAside = document.querySelector(`.img-aside-container:nth-child(${counter})`);
+    imgOldAside.classList.remove("activate");
+
     if (counter==images.length){
         counter=0;
     }
+
     console.log(counter+1);
     counter++;
+
     let imgVisibleSelector = document.querySelector(`.show:nth-child(${counter})`);
     imgVisibleSelector.classList.add("visible");
+
+    let imgVisibleAside = document.querySelector(`.img-aside-container:nth-child(${counter})`);
+    imgVisibleAside.classList.add("activate");
+
+    console.log(imgVisibleAside);
 })
 
 up.addEventListener("click", function () {
     let imgOldSelector = document.querySelector(`.show:nth-child(${counter})`);
     imgOldSelector.classList.remove("visible");
+
+    let imgOldAside = document.querySelector(`.img-aside-container:nth-child(${counter})`);
+    imgOldAside.classList.remove("activate");
+    
     if (counter==1){
         counter=images.length+1;
     }
     console.log(counter-1);
     counter--;
+
     let imgVisibleSelector = document.querySelector(`.show:nth-child(${counter})`);
     imgVisibleSelector.classList.add("visible");
+
+    let imgVisibleAside = document.querySelector(`.img-aside-container:nth-child(${counter})`);
+    imgVisibleAside.classList.add("activate");
 })
